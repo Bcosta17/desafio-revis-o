@@ -30,17 +30,14 @@ html, body, input {
 
 header {
   width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 0 3.4rem 9.3rem 3.2rem;
 }
 
-header > img {
-  width: 85%;
+.astronaut img {
+  width: 100%;
 }
 
-header h1 {
+h1 {
   font-size: 3.2rem;
   font-weight: 900;
 
@@ -52,44 +49,45 @@ header p {
   font-weight: 600;
 
   color: var(--secondary-color);
-
-  
 }
 
 header .icon-arrow {
   width: 5.8rem;
   height: 10rem;
 
-  margin: 3.5rem 0 9.3rem 0
+  margin-top: 3.5rem;
+}
+
+.header-wrapper {
+  text-align: center;
 }
 
 main .cards {
-  background-color: var(--secondary-color);
+  width: 100%;
+  height: 100%;
+  padding: 5.3rem 3.9rem 5.5rem;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
   gap: 5rem;
-
-  padding: 5.2rem 7rem;
-
+  
+  background-color: var(--secondary-color);  
   list-style: none;
 }
+
+
 
 .cards .card {
   background-color: #FFF;
 
   display: flex;
   flex-direction: column;
-  padding: 2.6rem;
   align-items: flex-start;
   gap: 3.3rem;
 
- 
   border-radius: 2.4rem;
-
+  
   width: 100%;
-
+  padding: 2.6rem;
 }
 
 .text-content {
@@ -117,41 +115,45 @@ main .cards {
 }
 
 .form {
-  height: 56.5rem;
-  padding: 7.8rem 4rem 6.5rem;
+  width: 100%;
+  height: 100%;
+  padding: 7.8rem 3.9rem 6.5rem;
+}
 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
+fieldset {
+  border: none;
 }
 
 .form h2 {
   font-size: 3.2rem;
   font-weight: 900;
 
+  margin-bottom: 4.3rem;
   color: var(--title-color);
 }
 
-.form form {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
 
 .item-form {
   position: relative;
+  margin-bottom: 2.4rem;
 }
 
-.item-form input, .item-form textarea {
-  display: flex;
-  width: 34.8rem;
-  padding: 1.2rem 1.6rem 1.2rem 4rem;
-  align-items: center;
-  gap: 1.2rem;
+.item-form input, 
+.item-form textarea {
+  width: 100%;
+  padding: 1.2rem 1.6rem 1.6rem 4rem;
 
   border-radius: 1.6rem;
-  border: 1.5px solid var(--secondary-color);
+  border: .15rem solid var(--secondary-color);
+
+  font-size: 1.6rem;
+}
+
+.item-form input::placeholder, 
+.item-form textarea::placeholder {
+  color: var(--secondary-color);
+  font-weight: 600;
+  font-size: 1.6rem;
 }
 
 .item-form > img {
@@ -181,11 +183,6 @@ form button {
   line-height: 2.4rem;
 }
 
-
-.stars {
-  display: none;
-}
-
 footer {
   background-color: var(--secondary-color);
   color: white;
@@ -195,4 +192,82 @@ footer {
   text-align: center;
   
   padding: 1.6rem;
+}
+
+@media (min-width: 850px) {
+ 
+  h1 {
+   
+    font-size: clamp(3rem, 3.5vw, 5.6rem);
+    margin: 0 0 0.8rem;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2.9rem 10.3rem 10.9rem;
+    max-height: 83.6rem;
+  }
+
+  header .header-wrapper {
+    order: 1; 
+    margin-top: 31.2rem;
+    text-align: left;
+  }
+
+  header .astronaut {
+    order: 2;
+  }
+
+  header .header-wrapper p {
+    min-width: clamp(30rem, 40vw, 55rem);
+    font-size: clamp(1.5rem, 2.5vw, 3.2rem); 
+    line-height: 4rem;
+    margin-bottom: 11rem;
+  }
+
+  header .header-wrapper .button-down {
+    margin: 0;
+    justify-self: flex-end;
+  }
+
+  /* Cards Section */
+  main .cards {
+    grid-template-columns: repeat(3, minmax(30rem, 1fr) );
+    gap: 6rem;
+    padding: 6.4rem 11.1rem 8rem;
+  }
+
+  .cards .card {
+    padding: 3.2rem;
+    border-radius: 2.4rem;
+  }
+
+  .cards .card img {
+    width: 9.7rem;
+    margin-bottom: 4rem;
+  }
+
+  
+  .form {
+    display: flex;
+    align-items: center;
+    gap: 9.2rem;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .form form {
+    width: 50%;
+    margin-left: 10.9rem;
+  }
+  .form .stars {
+    width: 50%;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 1200px) {
+  :root {
+    font-size: 45%;
+  }
 }
